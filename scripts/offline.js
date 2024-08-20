@@ -793,12 +793,12 @@ Runner.prototype = {
 
         if (this.distanceRan < 4000) {
           document.body.style.backgroundColor = "orange";
-        } else if (this.distanceRan >= 4000 && this.distanceRan < 5000) {
+        } else if (this.distanceRan >= 4000 && this.distanceRan < 8000) {
           document.body.style.backgroundColor = "pink";
-        } else if (this.distanceRan >= 5000 && this.distanceRan < 7500) {
-          document.body.style.backgroundColor = "purple";
+        } else if (this.distanceRan >= 8000 && this.distanceRan < 12000) {
+          document.body.style.backgroundColor = "mediumorchid";
         } else {
-          document.body.style.backgroundColor = "azure";
+          document.body.style.backgroundColor = "palegreen";
         }
 
         if (this.currentSpeed < this.config.MAX_SPEED) {

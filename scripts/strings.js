@@ -14,7 +14,7 @@ var pageData = { "altGameCommonImage1x":
 	"errorCode":"",
 	"fontfamily":"'Segoe UI', Tahoma, sans-serif",
 	"fontsize":"75%",
-	"heading":{"hostName":"dino","msg":"Press space to play"},
+	"heading":{"hostName":"dino","msg":"PLAYER NO. 1: Deluxe Edition \n Press space to play"},
 	"iconClass":"icon-offline",
 	"language":"en",
 	"textdirection":"ltr",
