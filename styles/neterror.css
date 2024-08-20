@@ -65,12 +65,9 @@ html[dir='rtl'].offline .icon-offline {
 }
 
 .offline.inverted {
-  background-color: #dfdedb; /* --google-gray-900 inverted value */
-  filter: invert(1);
 }
 
 .offline.inverted body {
-  background-color: #dfdedb;
 }
 
 .offline .interstitial-wrapper {
@@ -373,57 +370,4 @@ html[dir='rtl'].offline .icon-offline {
   transform-origin: top center;
   transition: transform 250ms cubic-bezier(0.4, 0, 1, 1) 400ms;
   z-index: 2;
-}
-
-@media (prefers-color-scheme: dark) {
-  .icon {
-    filter: invert(1);
-  }
-
-  .offline .runner-canvas {
-    filter: invert(1);
-    transition: filter 1.5s cubic-bezier(0.65, 0.05, 0.36, 1),
-              background-color 1.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-  }
-  
-  .offline.inverted .runner-canvas {
-    filter: invert(0);
-  }
-
-  .offline.inverted {
-    background-color: var(--background-color);
-    filter: invert(0);
-  }
-
-  .offline.inverted body {
-    background-color: #fff;
-  }
-
-  .offline.inverted .offline-runner-live-region {
-    color: #fff;
-  }
-
-  #suggestions-list a {
-    color: var(--link-color);
-  }
-
-  #error-information-button {
-    filter: invert(0.6);
-  }
-
-  .slow-speed-option {
-    background: var(--google-gray-800);
-    color: var(--google-gray-100);
-  }
-
-  .slow-speed-option .slow-speed-toggle::before,
-  .slow-speed-option [type=checkbox]:checked:disabled +
-    .slow-speed-toggle::before {
-     background: rgb(189,193,198);
-  }
-
-  .slow-speed-option [type=checkbox]:checked + .slow-speed-toggle::after,
-  .slow-speed-option [type=checkbox]:checked + .slow-speed-toggle::before {
-    background: var(--google-blue-300);
-  }
 }

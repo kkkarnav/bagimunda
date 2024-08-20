@@ -222,7 +222,6 @@ Runner.classes = {
   CONTAINER: 'runner-container',
   CRASHED: 'crashed',
   ICON: 'icon-offline',
-  INVERTED: 'inverted',
   SNACKBAR: 'snackbar',
   SNACKBAR_SHOW: 'snackbar-show',
   TOUCH_CONTROLLER: 'controller',
@@ -520,14 +519,7 @@ Runner.prototype = {
 
     window.addEventListener(Runner.events.RESIZE,
         this.debounceResize.bind(this));
-
-    // Handle dark mode
-    const darkModeMediaQuery =
-        window.matchMedia('(prefers-color-scheme: dark)');
-    this.isDarkMode = darkModeMediaQuery && darkModeMediaQuery.matches;
-    darkModeMediaQuery.addListener((e) => {
-      this.isDarkMode = e.matches;
-    });
+        
   },
 
   /**
@@ -754,7 +746,7 @@ Runner.prototype = {
       if (this.playingIntro) {
         this.horizon.update(0, this.currentSpeed, hasObstacles);
       } else if (!this.crashed) {
-        const showNightMode = this.isDarkMode ^ this.inverted;
+        const showNightMode = false;
         deltaTime = !this.activated ? 0 : deltaTime;
         this.horizon.update(
             deltaTime, this.currentSpeed, hasObstacles, showNightMode);
@@ -1470,17 +1462,6 @@ Runner.prototype = {
    * @param {boolean} reset Whether to reset colors.
    */
   invert(reset) {
-    const htmlEl = document.firstElementChild;
-
-    if (reset) {
-      htmlEl.classList.toggle(Runner.classes.INVERTED,
-          false);
-      this.invertTimer = 0;
-      this.inverted = false;
-    } else {
-      this.inverted = htmlEl.classList.toggle(
-          Runner.classes.INVERTED, this.invertTrigger);
-    }
   },
 };
 
