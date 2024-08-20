@@ -166,7 +166,7 @@ Runner.config = {
   FADE_DURATION: 1,
   FLASH_DURATION: 1000,
   GAMEOVER_CLEAR_TIME: 1200,
-  INITIAL_JUMP_VELOCITY: 12,
+  INITIAL_JUMP_VELOCITY: 10,
   INVERT_FADE_DURATION: 12000,
   MAX_BLINK_COUNT: 3,
   MAX_CLOUDS: 6,
@@ -180,7 +180,7 @@ Runner.config = {
 };
 
 Runner.normalConfig = {
-  ACCELERATION: 0.001,
+  ACCELERATION: 0.0005,
   AUDIOCUE_PROXIMITY_THRESHOLD: 190,
   AUDIOCUE_PROXIMITY_THRESHOLD_MOBILE_A11Y: 250,
   GAP_COEFFICIENT: 0.6,
@@ -519,7 +519,7 @@ Runner.prototype = {
 
     window.addEventListener(Runner.events.RESIZE,
         this.debounceResize.bind(this));
-        
+
   },
 
   /**
@@ -790,6 +790,16 @@ Runner.prototype = {
 
       if (!collision) {
         this.distanceRan += this.currentSpeed * deltaTime / this.msPerFrame;
+
+        if (this.distanceRan < 4000) {
+          document.body.style.backgroundColor = "orange";
+        } else if (this.distanceRan >= 4000 && this.distanceRan < 5000) {
+          document.body.style.backgroundColor = "pink";
+        } else if (this.distanceRan >= 5000 && this.distanceRan < 7500) {
+          document.body.style.backgroundColor = "purple";
+        } else {
+          document.body.style.backgroundColor = "azure";
+        }
 
         if (this.currentSpeed < this.config.MAX_SPEED) {
           this.currentSpeed += this.config.ACCELERATION;
