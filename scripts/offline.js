@@ -11,15 +11,15 @@ function _isIpad() {
 let current_distance_ran = 0;
 
 const audioFiles = [
-  new Audio('scripts/0.mp3'),
-  new Audio('scripts/1.mp3'),
-  new Audio('scripts/2.mp3'),
-  new Audio('scripts/3.mp3'),
-  new Audio('scripts/4.mp3'),
-  new Audio('scripts/5.mp3'),
-  new Audio('scripts/6.mp3'),
-  new Audio('scripts/7.mp3'),
-  new Audio('scripts/8.mp3'),
+  new Audio('music/0.mp3'),
+  new Audio('music/1.mp3'),
+  new Audio('music/2.mp3'),
+  new Audio('music/3.mp3'),
+  new Audio('music/4.mp3'),
+  new Audio('music/5.mp3'),
+  new Audio('music/6.mp3'),
+  new Audio('music/7.mp3'),
+  new Audio('music/8.mp3'),
 ];
 
 function fadeOutAndSwitch(audio, audio2) {
@@ -825,9 +825,24 @@ Runner.prototype = {
         } else if (this.distanceRan >= 4000 && this.distanceRan < 8000 && document.body.style.backgroundColor != "pink") {
           document.body.style.backgroundColor = "pink";
           fadeOutAndSwitch(audioFiles[0], audioFiles[1]);
-        } else if (this.distanceRan >= 8000 && this.distanceRan < 12000) {
+        } else if (this.distanceRan >= 8000 && this.distanceRan < 12000 && document.body.style.backgroundColor != "mediumorchid") {
           document.body.style.backgroundColor = "mediumorchid";
           fadeOutAndSwitch(audioFiles[1], audioFiles[2]);
+        } else if (this.distanceRan >= 12000 && this.distanceRan < 16000 && document.body.style.backgroundColor != "orange") {
+          document.body.style.backgroundColor = "orange";
+          fadeOutAndSwitch(audioFiles[2], audioFiles[3]);
+        } else if (this.distanceRan >= 16000 && this.distanceRan < 20000 && document.body.style.backgroundColor != "pink") {
+          document.body.style.backgroundColor = "pink";
+          fadeOutAndSwitch(audioFiles[3], audioFiles[4]);
+        } else if (this.distanceRan >= 20000 && this.distanceRan < 24000 && document.body.style.backgroundColor != "mediumorchid") {
+          document.body.style.backgroundColor = "mediumorchid";
+          fadeOutAndSwitch(audioFiles[4], audioFiles[5]);
+        } else if (this.distanceRan >= 24000 && this.distanceRan < 28000 && document.body.style.backgroundColor != "orange") {
+          document.body.style.backgroundColor = "orange";
+          fadeOutAndSwitch(audioFiles[5], audioFiles[6]);
+        } else if (this.distanceRan >= 28000 && this.distanceRan < 32000 && document.body.style.backgroundColor != "pink") {
+          document.body.style.backgroundColor = "pink";
+          fadeOutAndSwitch(audioFiles[6], audioFiles[7]);
         } else {
           document.body.style.backgroundColor = "palegreen";
           fadeOutAndSwitch(audioFiles[2], audioFiles[3]);
