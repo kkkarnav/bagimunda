@@ -170,7 +170,7 @@ Runner.config = {
   INVERT_FADE_DURATION: 12000,
   MAX_BLINK_COUNT: 3,
   MAX_CLOUDS: 6,
-  MAX_OBSTACLE_LENGTH: 3,
+  MAX_OBSTACLE_LENGTH: 1,
   MAX_OBSTACLE_DUPLICATION: 2,
   RESOURCE_TEMPLATE_ID: 'audio-resources',
   SPEED: 6,
@@ -2244,7 +2244,7 @@ Obstacle.MAX_GAP_COEFFICIENT = 1.5;
 /**
  * Maximum obstacle grouping count.
  */
-Obstacle.MAX_OBSTACLE_LENGTH = 3;
+Obstacle.MAX_OBSTACLE_LENGTH = 1;
 
 
 Obstacle.prototype = {
@@ -3171,7 +3171,7 @@ DistanceMeter.prototype = {
     const highScoreStr = (this.defaultString +
         distance).substr(-this.maxScoreUnits);
 
-    this.highScore = ['10', '11', ''].concat(highScoreStr.split(''));
+    this.highScore = ['11', '10', ''].concat(highScoreStr.split(''));
   },
 
 
@@ -4085,9 +4085,7 @@ Horizon.prototype = {
    */
   addNewObstacle(currentSpeed) {
     const obstacleCount =
-        Obstacle.types[Obstacle.types.length - 1].type != 'COLLECTABLE' ||
-            (Runner.isAltGameModeEnabled() && !this.altGameModeActive ||
-             this.altGameModeActive) ?
+        Obstacle.types[Obstacle.types.length - 1].type != 'COLLECTABLE' ?
         Obstacle.types.length - 1 :
         Obstacle.types.length - 2;
     const obstacleTypeIndex =

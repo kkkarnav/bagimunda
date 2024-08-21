@@ -3,10 +3,8 @@ var pageData = { "altGameCommonImage1x":
 	"altGameCommonImage2x":
 	"images/default_200_percent/offline/200-olympic-firemedal-sprites.png",
 	"dinoGameA11yAriaLabel":"",
-	"dinoGameA11yGameOver":
-	"Game over, your score is $1.",
-	"dinoGameA11yHighScore":
-	"Your highest score is $1.",
+	"dinoGameA11yGameOver": "Game over, your score is $1.",
+	"dinoGameA11yHighScore": "Your highest score is $1.",
 	"dinoGameA11yJump":"Jump!",
 	"dinoGameA11ySpeedToggle":"Start slower",
 	"dinoGameA11yStartGame":"Game started.",

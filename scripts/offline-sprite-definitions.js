@@ -51,12 +51,19 @@ Runner.spriteDefinitionByType = {
       BACKGROUND_EL: {x: 166, y: 2},
       CACTUS_LARGE: {x: 652, y: 2},
       CACTUS_SMALL: {x: 446, y: 2},
+      METAL_BALL: {x: 652, y: 2},
+      PAPER: {x: 652, y: 2},
+      CAR: {x: 652, y: 2},
+      FAN_GIRLS: {x: 652, y: 2},
+      GLOVES: {x: 652, y: 2},
+      CROWN: {x: 652, y: 2},
       OBSTACLE_2: {x: 652, y: 2},
       OBSTACLE: {x: 446, y: 2},
       CLOUD: {x: 166, y: 2},
       HORIZON: {x: 2, y: 104},
       MOON: {x: 954, y: 2},
-      PTERODACTYL: {x: 260, y: 2},
+      PLANE: {x: 260, y: 2},
+      PIGEON: {x: 260, y: 2},
       RESTART: {x: 2, y: 130},
       TEXT_SPRITE: {x: 1294, y: 2},
       TREX: {x: 1678, y: 2},
@@ -65,7 +72,7 @@ Runner.spriteDefinitionByType = {
       ALT_GAME_END: {x: 242, y: 4}
     },
     MAX_GAP_COEFFICIENT: 1.5,
-    MAX_OBSTACLE_LENGTH: 3,
+    MAX_OBSTACLE_LENGTH: 1,
     HAS_CLOUDS: 1,
     BOTTOM_PAD: 10,
     TREX: {
@@ -110,13 +117,104 @@ Runner.spriteDefinitionByType = {
         ]
       },
       {
-        type: 'PTERODACTYL',
+        type: 'METAL_BALL',
+        width: 25,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
+      },
+      {
+        type: 'PAPER',
+        width: 25,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
+      },
+      {
+        type: 'CAR',
+        width: 25,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
+      },
+      {
+        type: 'FAN_GIRLS',
+        width: 25,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
+      },
+      {
+        type: 'GLOVES',
+        width: 25,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
+      },
+      {
+        type: 'CROWN',
+        width: 25,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
+      },
+      {
+        type: 'PAPER',
+        width: 25,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
+      },
+      {
+        type: 'PLANE',
         width: 46,
         height: 40,
         yPos: [100, 75, 50],    // Variable height.
         yPosMobile: [100, 50],  // Variable height mobile.
         multipleSpeed: 999,
-        minSpeed: 8.5,
+        minSpeed: 6.5,
         minGap: 150,
         collisionBoxes: [
           new CollisionBox(15, 15, 16, 5), new CollisionBox(18, 21, 24, 6),
@@ -124,7 +222,26 @@ Runner.spriteDefinitionByType = {
           new CollisionBox(10, 8, 6, 9)
         ],
         numFrames: 2,
-        frameRate: 1000 / 6,
+        frameRate: 1000 / 12,
+        speedOffset: .8
+      },
+      
+      {
+        type: 'PIGEON',
+        width: 46,
+        height: 40,
+        yPos: [100, 75, 50],    // Variable height.
+        yPosMobile: [100, 50],  // Variable height mobile.
+        multipleSpeed: 999,
+        minSpeed: 6.5,
+        minGap: 150,
+        collisionBoxes: [
+          new CollisionBox(15, 15, 16, 5), new CollisionBox(18, 21, 24, 6),
+          new CollisionBox(2, 14, 4, 3), new CollisionBox(6, 10, 4, 7),
+          new CollisionBox(10, 8, 6, 9)
+        ],
+        numFrames: 2,
+        frameRate: 1000 / 12,
         speedOffset: .8
       },
       {
