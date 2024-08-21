@@ -10,6 +10,31 @@ function _isIpad() {
 
 let current_distance_ran = 0;
 
+const audioFiles = [
+  new Audio('scripts/0.mp3'),
+  new Audio('scripts/1.mp3'),
+  new Audio('scripts/2.mp3'),
+  new Audio('scripts/3.mp3'),
+  new Audio('scripts/4.mp3'),
+  new Audio('scripts/5.mp3'),
+  new Audio('scripts/6.mp3'),
+  new Audio('scripts/7.mp3'),
+  new Audio('scripts/8.mp3'),
+];
+
+function fadeOutAndSwitch(audio, audio2) {
+  let fadeInterval = setInterval(function() {
+    if (audio.volume > 0.1) {
+      audio.volume -= 0.1;
+    } else {
+      clearInterval(fadeInterval);
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  }, 100);
+  audio2.play();
+}
+
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -794,14 +819,18 @@ Runner.prototype = {
         this.distanceRan += this.currentSpeed * deltaTime / this.msPerFrame;
         current_distance_ran = this.distanceRan;
 
-        if (this.distanceRan < 4000) {
+        if (this.distanceRan < 4000 && document.body.style.backgroundColor != "orange") {
           document.body.style.backgroundColor = "orange";
-        } else if (this.distanceRan >= 4000 && this.distanceRan < 8000) {
+          audioFiles[0].play();
+        } else if (this.distanceRan >= 4000 && this.distanceRan < 8000 && document.body.style.backgroundColor != "pink") {
           document.body.style.backgroundColor = "pink";
+          fadeOutAndSwitch(audioFiles[0], audioFiles[1]);
         } else if (this.distanceRan >= 8000 && this.distanceRan < 12000) {
           document.body.style.backgroundColor = "mediumorchid";
+          fadeOutAndSwitch(audioFiles[1], audioFiles[2]);
         } else {
           document.body.style.backgroundColor = "palegreen";
+          fadeOutAndSwitch(audioFiles[2], audioFiles[3]);
         }
 
         if (this.currentSpeed < this.config.MAX_SPEED) {
