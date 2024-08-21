@@ -3174,7 +3174,7 @@ DistanceMeter.prototype = {
     const highScoreStr = (this.defaultString +
         distance).substr(-this.maxScoreUnits);
 
-    this.highScore = ['11', '10', ''].concat(highScoreStr.split(''));
+    this.highScore = ['10', '11', ''].concat(highScoreStr.split(''));
   },
 
 

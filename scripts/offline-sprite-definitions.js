@@ -52,16 +52,16 @@ Runner.spriteDefinitionByType = {
       METAL_BALL: {x: 440, y: 2},
       PAPER: {x: 498, y: 2},
       CAR: {x: 550, y: 2},
-      FAN_GIRLS: {x: 612, y: 2},
-      GLOVES: {x: 667, y: 2},
-      CROWN: {x: 723, y: 2},
+      FAN_GIRLS: {x: 636, y: 2},
+      GLOVES: {x: 696, y: 2},
+      CROWN: {x: 754, y: 2},
       OBSTACLE_2: {x: 652, y: 2},
       OBSTACLE: {x: 446, y: 2},
       CLOUD: {x: 166, y: 2},
       HORIZON: {x: 2, y: 104},
       MOON: {x: 954, y: 2},
       PLANE: {x: 260, y: 2},
-      PIGEON: {x: 260, y: 2},
+      PIGEON: {x: 838, y: 2},
       RESTART: {x: 2, y: 130},
       TEXT_SPRITE: {x: 1294, y: 2},
       TREX: {x: 1678, y: 2},
@@ -75,9 +75,9 @@ Runner.spriteDefinitionByType = {
     BOTTOM_PAD: 10,
     TREX: {
       WAITING_1: {x: 44, w: 44, h: 47, xOffset: 0},
-      WAITING_2: {x: 0, w: 44, h: 47, xOffset: 0},
-      RUNNING_1: {x: 88, w: 44, h: 47, xOffset: 0},
-      RUNNING_2: {x: 132, w: 44, h: 47, xOffset: 0},
+      WAITING_2: {x: 88, w: 44, h: 47, xOffset: 0},
+      RUNNING_1: {x: 132, w: 44, h: 47, xOffset: 0},
+      RUNNING_2: {x: 176, w: 44, h: 47, xOffset: 0},
       JUMPING: {x: 0, w: 44, h: 47, xOffset: 0},
       CRASHED: {x: 220, w: 44, h: 47, xOffset: 0},
       COLLISION_BOXES: [
@@ -97,8 +97,7 @@ Runner.spriteDefinitionByType = {
         minGap: 120,
         minSpeed: 0,
         collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
+          new CollisionBox(12, 12, 7, 30)
         ]
       },
       {
@@ -110,21 +109,19 @@ Runner.spriteDefinitionByType = {
         minGap: 120,
         minSpeed: 0,
         collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
+          new CollisionBox(10, 12, 7, 30)
         ]
       },
       {
         type: 'CAR',
-        width: 32,
+        width: 42,
         height: 36,
         yPos: 98,
         multipleSpeed: 7,
         minGap: 120,
         minSpeed: 0,
         collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
+          new CollisionBox(0, 12, 14, 30)
         ]
       },
       {
@@ -147,7 +144,7 @@ Runner.spriteDefinitionByType = {
       },
       {
         type: 'FAN_GIRLS',
-        width: 27,
+        width: 30,
         height: 50,
         yPos: 97,
         multipleSpeed: 7,
@@ -160,7 +157,7 @@ Runner.spriteDefinitionByType = {
       },
       {
         type: 'PIGEON',
-        width: 46,
+        width: 29,
         height: 40,
         yPos: [100, 75, 50],    // Variable height.
         yPosMobile: [100, 50],  // Variable height mobile.
@@ -178,7 +175,7 @@ Runner.spriteDefinitionByType = {
       },
       {
         type: 'GLOVES',
-        width: 28,
+        width: 30,
         height: 50,
         yPos: 90,
         multipleSpeed: 7,
@@ -191,15 +188,14 @@ Runner.spriteDefinitionByType = {
       },
       {
         type: 'CROWN',
-        width: 40,
+        width: 44,
         height: 50,
         yPos: 90,
         multipleSpeed: 7,
         minGap: 120,
         minSpeed: 0,
         collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
+          new CollisionBox(6, 12, 7, 38)
         ]
       },
       {
