@@ -4100,7 +4100,7 @@ Horizon.prototype = {
         current_distance_ran >= 20000 && current_distance_ran < 24000? 5 :
         current_distance_ran >= 24000 && current_distance_ran < 28000? 6 :
         current_distance_ran >= 28000 && current_distance_ran < 32000? 7 :
-        obstacleCount > 0 ? getRandomNum(0, obstacleCount) : 0;
+        obstacleCount <= 1 ? getRandomNum(0, obstacleCount) : 0;
     const obstacleType = Obstacle.types[obstacleTypeIndex];
 
     // Check for multiples of the same type of obstacle.

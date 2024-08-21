@@ -49,12 +49,12 @@ Runner.spriteDefinitionByType = {
     },
     HDPI: {
       BACKGROUND_EL: {x: 166, y: 2},
-      METAL_BALL: {x: 652, y: 2},
-      PAPER: {x: 652, y: 2},
-      CAR: {x: 652, y: 2},
-      FAN_GIRLS: {x: 652, y: 2},
-      GLOVES: {x: 652, y: 2},
-      CROWN: {x: 652, y: 2},
+      METAL_BALL: {x: 440, y: 2},
+      PAPER: {x: 498, y: 2},
+      CAR: {x: 550, y: 2},
+      FAN_GIRLS: {x: 612, y: 2},
+      GLOVES: {x: 667, y: 2},
+      CROWN: {x: 723, y: 2},
       OBSTACLE_2: {x: 652, y: 2},
       OBSTACLE: {x: 446, y: 2},
       CLOUD: {x: 166, y: 2},
@@ -90,7 +90,7 @@ Runner.spriteDefinitionByType = {
     OBSTACLES: [
       {
         type: 'METAL_BALL',
-        width: 25,
+        width: 29,
         height: 50,
         yPos: 90,
         multipleSpeed: 7,
@@ -103,7 +103,7 @@ Runner.spriteDefinitionByType = {
       },
       {
         type: 'PAPER',
-        width: 25,
+        width: 26,
         height: 50,
         yPos: 90,
         multipleSpeed: 7,
@@ -116,61 +116,9 @@ Runner.spriteDefinitionByType = {
       },
       {
         type: 'CAR',
-        width: 25,
-        height: 50,
-        yPos: 90,
-        multipleSpeed: 7,
-        minGap: 120,
-        minSpeed: 0,
-        collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
-        ]
-      },
-      {
-        type: 'FAN_GIRLS',
-        width: 25,
-        height: 50,
-        yPos: 90,
-        multipleSpeed: 7,
-        minGap: 120,
-        minSpeed: 0,
-        collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
-        ]
-      },
-      {
-        type: 'GLOVES',
-        width: 25,
-        height: 50,
-        yPos: 90,
-        multipleSpeed: 7,
-        minGap: 120,
-        minSpeed: 0,
-        collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
-        ]
-      },
-      {
-        type: 'CROWN',
-        width: 25,
-        height: 50,
-        yPos: 90,
-        multipleSpeed: 7,
-        minGap: 120,
-        minSpeed: 0,
-        collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
-        ]
-      },
-      {
-        type: 'PAPER',
-        width: 25,
-        height: 50,
-        yPos: 90,
+        width: 32,
+        height: 36,
+        yPos: 98,
         multipleSpeed: 7,
         minGap: 120,
         minSpeed: 0,
@@ -186,7 +134,7 @@ Runner.spriteDefinitionByType = {
         yPos: [100, 75, 50],    // Variable height.
         yPosMobile: [100, 50],  // Variable height mobile.
         multipleSpeed: 999,
-        minSpeed: 6.5,
+        minSpeed: 0,
         minGap: 150,
         collisionBoxes: [
           new CollisionBox(15, 15, 16, 5), new CollisionBox(18, 21, 24, 6),
@@ -197,7 +145,19 @@ Runner.spriteDefinitionByType = {
         frameRate: 1000 / 12,
         speedOffset: .8
       },
-      
+      {
+        type: 'FAN_GIRLS',
+        width: 27,
+        height: 50,
+        yPos: 97,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
+      },
       {
         type: 'PIGEON',
         width: 46,
@@ -205,7 +165,7 @@ Runner.spriteDefinitionByType = {
         yPos: [100, 75, 50],    // Variable height.
         yPosMobile: [100, 50],  // Variable height mobile.
         multipleSpeed: 999,
-        minSpeed: 6.5,
+        minSpeed: 0,
         minGap: 150,
         collisionBoxes: [
           new CollisionBox(15, 15, 16, 5), new CollisionBox(18, 21, 24, 6),
@@ -215,6 +175,45 @@ Runner.spriteDefinitionByType = {
         numFrames: 2,
         frameRate: 1000 / 12,
         speedOffset: .8
+      },
+      {
+        type: 'GLOVES',
+        width: 28,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
+      },
+      {
+        type: 'CROWN',
+        width: 40,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
+      },
+      {
+        type: 'PAPER',
+        width: 25,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
+          new CollisionBox(13, 10, 10, 38)
+        ]
       },
       {
         type: 'COLLECTABLE',
