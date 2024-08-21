@@ -49,8 +49,6 @@ Runner.spriteDefinitionByType = {
     },
     HDPI: {
       BACKGROUND_EL: {x: 166, y: 2},
-      CACTUS_LARGE: {x: 652, y: 2},
-      CACTUS_SMALL: {x: 446, y: 2},
       METAL_BALL: {x: 652, y: 2},
       PAPER: {x: 652, y: 2},
       CAR: {x: 652, y: 2},
@@ -90,32 +88,6 @@ Runner.spriteDefinitionByType = {
     },
     /** @type {Array<ObstacleType>} */
     OBSTACLES: [
-      {
-        type: 'CACTUS_SMALL',
-        width: 17,
-        height: 35,
-        yPos: 105,
-        multipleSpeed: 4,
-        minGap: 120,
-        minSpeed: 0,
-        collisionBoxes: [
-          new CollisionBox(0, 7, 5, 27), new CollisionBox(4, 0, 6, 34),
-          new CollisionBox(10, 4, 7, 14)
-        ]
-      },
-      {
-        type: 'CACTUS_LARGE',
-        width: 25,
-        height: 50,
-        yPos: 90,
-        multipleSpeed: 7,
-        minGap: 120,
-        minSpeed: 0,
-        collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
-        ]
-      },
       {
         type: 'METAL_BALL',
         width: 25,

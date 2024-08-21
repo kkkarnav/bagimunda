@@ -8,6 +8,8 @@ function _isIpad() {
   return isIpad;
 }
 
+let current_distance_ran = 0;
+
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -790,6 +792,7 @@ Runner.prototype = {
 
       if (!collision) {
         this.distanceRan += this.currentSpeed * deltaTime / this.msPerFrame;
+        current_distance_ran = this.distanceRan;
 
         if (this.distanceRan < 4000) {
           document.body.style.backgroundColor = "orange";
@@ -4089,13 +4092,20 @@ Horizon.prototype = {
         Obstacle.types.length - 1 :
         Obstacle.types.length - 2;
     const obstacleTypeIndex =
+        current_distance_ran < 4000? 0 :
+        current_distance_ran >= 4000 && current_distance_ran < 8000? 1 :
+        current_distance_ran >= 8000 && current_distance_ran < 12000? 2 :
+        current_distance_ran >= 12000 && current_distance_ran < 16000? 3 :
+        current_distance_ran >= 16000 && current_distance_ran < 20000? 4 :
+        current_distance_ran >= 20000 && current_distance_ran < 24000? 5 :
+        current_distance_ran >= 24000 && current_distance_ran < 28000? 6 :
+        current_distance_ran >= 28000 && current_distance_ran < 32000? 7 :
         obstacleCount > 0 ? getRandomNum(0, obstacleCount) : 0;
     const obstacleType = Obstacle.types[obstacleTypeIndex];
 
     // Check for multiples of the same type of obstacle.
     // Also check obstacle is available at current speed.
-    if ((obstacleCount > 0 && this.duplicateObstacleCheck(obstacleType.type)) ||
-        currentSpeed < obstacleType.minSpeed) {
+    if (currentSpeed < obstacleType.minSpeed) {
       this.addNewObstacle(currentSpeed);
     } else {
       const obstacleSpritePos = this.spritePos[obstacleType.type];
