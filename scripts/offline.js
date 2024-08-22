@@ -865,7 +865,7 @@ Runner.prototype = {
         this.gameOver();
       }
 
-      if (this.distanceRan >= 3300) {
+      if (this.distanceRan >= 33000) {
         audioFiles[0].pause();
         this.gameEnded();
       }
