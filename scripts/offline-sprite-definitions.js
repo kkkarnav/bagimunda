@@ -67,7 +67,8 @@ Runner.spriteDefinitionByType = {
       TREX: {x: 1678, y: 2},
       STAR: {x: 1276, y: 2},
       COLLECTABLE: {x: 4, y: 4},
-      ALT_GAME_END: {x: 242, y: 4}
+      ALT_GAME_END: {x: 242, y: 4},
+      BOSS: {x: 95, y: 2}
     },
     MAX_GAP_COEFFICIENT: 1.5,
     MAX_OBSTACLE_LENGTH: 1,
@@ -88,6 +89,23 @@ Runner.spriteDefinitionByType = {
     },
     /** @type {Array<ObstacleType>} */
     OBSTACLES: [
+      {
+        type: 'BOSS',
+        width: 49,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 999,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(-10, 10, 9999, 99999),
+          new CollisionBox(0, 10, 9999, 99999),
+          new CollisionBox(10, 10, 9999, 99999),
+          new CollisionBox(20, 10, 9999, 99999),
+          new CollisionBox(30, 10, 9999, 99999),
+          new CollisionBox(40, 10, 9999, 99999),
+        ]
+      },
       {
         type: 'METAL_BALL',
         width: 29,
@@ -182,8 +200,7 @@ Runner.spriteDefinitionByType = {
         minGap: 120,
         minSpeed: 0,
         collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
+          new CollisionBox(2, 12, 7, 38)
         ]
       },
       {
@@ -196,19 +213,6 @@ Runner.spriteDefinitionByType = {
         minSpeed: 0,
         collisionBoxes: [
           new CollisionBox(6, 12, 7, 38)
-        ]
-      },
-      {
-        type: 'PAPER',
-        width: 25,
-        height: 50,
-        yPos: 90,
-        multipleSpeed: 7,
-        minGap: 120,
-        minSpeed: 0,
-        collisionBoxes: [
-          new CollisionBox(0, 12, 7, 38), new CollisionBox(8, 0, 7, 49),
-          new CollisionBox(13, 10, 10, 38)
         ]
       },
       {

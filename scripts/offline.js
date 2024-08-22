@@ -662,11 +662,6 @@ Runner.prototype = {
    * Update the game status to started.
    */
   startGame() {
-    
-    for (audio of audioFiles) {
-      audio.pause();
-      audio.currentTime = 0;
-    }
 
     if (this.isArcadeMode()) {
       this.setArcadeMode();
@@ -788,7 +783,7 @@ Runner.prototype = {
 
       // Check for collisions.
       let collision = hasObstacles &&
-          checkForCollision(this.horizon.obstacles[0], this.tRex);
+          checkForCollision(this.horizon.obstacles[0], this.tRex, document.getElementById('runner-canvas').getContext('2d'));
 
       // For a11y, audio cues.
       if (Runner.audioCues && hasObstacles) {
