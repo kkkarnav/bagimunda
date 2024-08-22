@@ -31,7 +31,7 @@ function fadeOutAndSwitch(audio, audio2) {
       audio.pause();
       audio.currentTime = 0;
     }
-  }, 100);
+  }, 5);
   audio2.play();
 }
 
@@ -207,7 +207,7 @@ Runner.config = {
 };
 
 Runner.normalConfig = {
-  ACCELERATION: 0.0005,
+  ACCELERATION: 0.0004,
   AUDIOCUE_PROXIMITY_THRESHOLD: 190,
   AUDIOCUE_PROXIMITY_THRESHOLD_MOBILE_A11Y: 250,
   GAP_COEFFICIENT: 0.6,
@@ -662,6 +662,12 @@ Runner.prototype = {
    * Update the game status to started.
    */
   startGame() {
+    
+    for (audio of audioFiles) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+
     if (this.isArcadeMode()) {
       this.setArcadeMode();
     }
@@ -700,6 +706,7 @@ Runner.prototype = {
    * @return boolean.
    */
   isCanvasInView() {
+    
     return this.containerEl.getBoundingClientRect().top >
         Runner.config.CANVAS_IN_VIEW_OFFSET;
   },
@@ -819,28 +826,28 @@ Runner.prototype = {
         this.distanceRan += this.currentSpeed * deltaTime / this.msPerFrame;
         current_distance_ran = this.distanceRan;
 
-        if (this.distanceRan < 4000 && document.body.style.backgroundColor != "orange") {
+        if (this.distanceRan < 3990) {
           document.body.style.backgroundColor = "orange";
           audioFiles[0].play();
-        } else if (this.distanceRan >= 4000 && this.distanceRan < 8000 && document.body.style.backgroundColor != "pink") {
+        } else if (this.distanceRan >= 3990 && this.distanceRan < 7990) {
           document.body.style.backgroundColor = "pink";
           fadeOutAndSwitch(audioFiles[0], audioFiles[1]);
-        } else if (this.distanceRan >= 8000 && this.distanceRan < 12000 && document.body.style.backgroundColor != "mediumorchid") {
+        } else if (this.distanceRan >= 7990 && this.distanceRan < 11990) {
           document.body.style.backgroundColor = "mediumorchid";
           fadeOutAndSwitch(audioFiles[1], audioFiles[2]);
-        } else if (this.distanceRan >= 12000 && this.distanceRan < 16000 && document.body.style.backgroundColor != "orange") {
+        } else if (this.distanceRan >= 11990 && this.distanceRan < 15990) {
           document.body.style.backgroundColor = "orange";
           fadeOutAndSwitch(audioFiles[2], audioFiles[3]);
-        } else if (this.distanceRan >= 16000 && this.distanceRan < 20000 && document.body.style.backgroundColor != "pink") {
+        } else if (this.distanceRan >= 15990 && this.distanceRan < 19990) {
           document.body.style.backgroundColor = "pink";
           fadeOutAndSwitch(audioFiles[3], audioFiles[4]);
-        } else if (this.distanceRan >= 20000 && this.distanceRan < 24000 && document.body.style.backgroundColor != "mediumorchid") {
+        } else if (this.distanceRan >= 19990 && this.distanceRan < 23990) {
           document.body.style.backgroundColor = "mediumorchid";
           fadeOutAndSwitch(audioFiles[4], audioFiles[5]);
-        } else if (this.distanceRan >= 24000 && this.distanceRan < 28000 && document.body.style.backgroundColor != "orange") {
+        } else if (this.distanceRan >= 23990 && this.distanceRan < 27990) {
           document.body.style.backgroundColor = "orange";
           fadeOutAndSwitch(audioFiles[5], audioFiles[6]);
-        } else if (this.distanceRan >= 28000 && this.distanceRan < 32000 && document.body.style.backgroundColor != "pink") {
+        } else if (this.distanceRan >= 27990 && this.distanceRan < 31990) {
           document.body.style.backgroundColor = "pink";
           fadeOutAndSwitch(audioFiles[6], audioFiles[7]);
         } else {
@@ -1437,6 +1444,10 @@ Runner.prototype = {
       this.generatedSoundFx.background();
       this.containerEl.setAttribute('title', getA11yString(A11Y_STRINGS.jump));
       announcePhrase(getA11yString(A11Y_STRINGS.started));
+      for (audio of audioFiles) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
     }
   },
 

@@ -128,8 +128,8 @@ Runner.spriteDefinitionByType = {
         type: 'PLANE',
         width: 46,
         height: 40,
-        yPos: [100, 75, 50],    // Variable height.
-        yPosMobile: [100, 50],  // Variable height mobile.
+        yPos: [75, 100],    // Variable height.
+        yPosMobile: [50, 100],  // Variable height mobile.
         multipleSpeed: 999,
         minSpeed: 0,
         minGap: 150,
@@ -159,8 +159,8 @@ Runner.spriteDefinitionByType = {
         type: 'PIGEON',
         width: 29,
         height: 40,
-        yPos: [100, 75, 50],    // Variable height.
-        yPosMobile: [100, 50],  // Variable height mobile.
+        yPos: [75, 100],    // Variable height.
+        yPosMobile: [50, 100],  // Variable height mobile.
         multipleSpeed: 999,
         minSpeed: 0,
         minGap: 150,
