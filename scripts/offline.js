@@ -845,14 +845,22 @@ Runner.prototype = {
         } else if (this.distanceRan >= 27990 && this.distanceRan < 31990) {
           document.body.style.backgroundColor = "pink";
           fadeOutAndSwitch(audioFiles[6], audioFiles[7]);
+        } else if (this.distanceRan >= 31990) {
+          document.body.style.backgroundColor = "red";
+          fadeOutAndSwitch(audioFiles[7], audioFiles[0]);
         } else {
           document.body.style.backgroundColor = "palegreen";
-          fadeOutAndSwitch(audioFiles[2], audioFiles[3]);
+          for (audio of audioFiles) {
+            audio.pause();
+            audio.currentTime = 0;
+          }
         }
 
         if (this.currentSpeed < this.config.MAX_SPEED) {
           this.currentSpeed += this.config.ACCELERATION;
         }
+      } else if (this.distanceRan >= 33000) {
+        this.gameEnded();
       } else {
         this.gameOver();
       }
@@ -1328,6 +1336,69 @@ Runner.prototype = {
         errorPageController.updateEasterEggHighScore(this.highestScore);
       }
     }
+  },
+
+  gameEnded() {
+    this.playSound(this.soundFx.HIT);
+    vibrate(200);
+
+    this.stop();
+    this.crashed = true;
+    this.distanceMeter.achievement = false;
+
+    this.tRex.update(100, Trex.status.CRASHED);
+
+    // Game over panel.
+    if (!this.gameOverPanel) {
+      const origSpriteDef = IS_HIDPI ?
+          Runner.spriteDefinitionByType.original.HDPI :
+          Runner.spriteDefinitionByType.original.LDPI;
+
+      if (this.canvas) {
+        if (Runner.isAltGameModeEnabled) {
+          this.gameOverPanel = new GameOverPanel(
+              this.canvas, origSpriteDef.TEXT_SPRITE, origSpriteDef.RESTART,
+              this.dimensions, origSpriteDef.ALT_GAME_END,
+              this.altGameModeActive);
+        } else {
+          this.gameOverPanel = new GameOverPanel(
+              this.canvas, origSpriteDef.TEXT_SPRITE, origSpriteDef.RESTART,
+              this.dimensions);
+        }
+      }
+    }
+
+    this.gameOverPanel.draw(this.altGameModeActive, this.tRex);
+
+    // Update the high score.
+    if (this.distanceRan > this.highestScore) {
+      this.saveHighScore(this.distanceRan);
+      window.localStorage.setItem('chrome-dino', this.distanceRan);
+    }
+
+    // Reset the time clock.
+    this.time = getTimeStamp();
+
+    if (Runner.audioCues) {
+      this.generatedSoundFx.stopAll();
+      announcePhrase(
+          getA11yString(A11Y_STRINGS.gameOver)
+              .replace(
+                  '$1',
+                  this.distanceMeter.getActualDistance(this.distanceRan)
+                      .toString()) +
+          ' ' +
+          getA11yString(A11Y_STRINGS.highScore)
+              .replace(
+                  '$1',
+
+                  this.distanceMeter.getActualDistance(this.highestScore)
+                      .toString()));
+      this.containerEl.setAttribute(
+          'title', getA11yString(A11Y_STRINGS.ariaLabel));
+    }
+    this.showSpeedToggle();
+    this.disableSpeedToggle(false);
   },
 
   /**
@@ -4150,12 +4221,15 @@ Horizon.prototype = {
         current_distance_ran >= 20000 && current_distance_ran < 24000? 5 :
         current_distance_ran >= 24000 && current_distance_ran < 28000? 6 :
         current_distance_ran >= 28000 && current_distance_ran < 32000? 7 :
+        current_distance_ran >= 32000? 8 :
         obstacleCount <= 1 ? getRandomNum(0, obstacleCount) : 0;
     const obstacleType = Obstacle.types[obstacleTypeIndex];
 
     // Check for multiples of the same type of obstacle.
     // Also check obstacle is available at current speed.
-    if (currentSpeed < obstacleType.minSpeed) {
+    if (current_distance_ran >= 33000) {
+      console.log("8 levels completed, game ended.")
+    } else if (currentSpeed < obstacleType.minSpeed) {
       this.addNewObstacle(currentSpeed);
     } else {
       const obstacleSpritePos = this.spritePos[obstacleType.type];
