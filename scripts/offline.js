@@ -3427,6 +3427,121 @@ DistanceMeter.prototype = {
    * @param {boolean=} opt_highScore Whether drawing the high score.
    */
   draw(digitPos, value, opt_highScore) {
+
+    if (current_distance_ran < 3990) {
+      this.canvasCtx.save();
+      this.canvasCtx.drawImage(
+        Runner.imageSprite,
+        920, // source x
+        132, // source y
+        80, // source width
+        50, // source height
+        412 - 40, // target x
+        0, // target y
+        40, // target width
+        24, // target height
+      );
+      this.canvasCtx.restore();
+    } else if (current_distance_ran >= 3990 && current_distance_ran < 7990) {
+      this.canvasCtx.save();
+      this.canvasCtx.drawImage(
+        Runner.imageSprite,
+        1000, // source x
+        132, // source y
+        136, // source width
+        50, // source height
+        412 - 68, // target x
+        0, // target y
+        68, // target width
+        24, // target height
+      );
+      this.canvasCtx.restore();
+    } else if (current_distance_ran >= 7990 && current_distance_ran < 11990) {
+      this.canvasCtx.save();
+      this.canvasCtx.drawImage(
+        Runner.imageSprite,
+        1136, // source x
+        132, // source y
+        156, // source width
+        50, // source height
+        412 - 78, // target x
+        0, // target y
+        78, // target width
+        24, // target height
+      );
+      this.canvasCtx.restore();
+    } else if (current_distance_ran >= 11990 && current_distance_ran < 15990) {
+      this.canvasCtx.save();
+      this.canvasCtx.drawImage(
+        Runner.imageSprite,
+        580, // source x
+        132, // source y
+        230, // source width
+        50, // source height
+        412 - 120, // target x
+        0, // target y
+        120, // target width
+        24, // target height
+      );
+      this.canvasCtx.restore();
+    } else if (current_distance_ran >= 15990 && current_distance_ran < 19990) {
+      this.canvasCtx.save();
+      this.canvasCtx.drawImage(
+        Runner.imageSprite,
+        1292, // source x
+        132, // source y
+        170, // source width
+        50, // source height
+        412 - 85, // target x
+        0, // target y
+        85, // target width
+        24, // target height
+      );
+      this.canvasCtx.restore();
+    } else if (current_distance_ran >= 19990 && current_distance_ran < 23990) {
+      this.canvasCtx.save();
+      this.canvasCtx.drawImage(
+        Runner.imageSprite,
+        1470, // source x
+        132, // source y
+        360, // source width
+        50, // source height
+        412 - 180, // target x
+        0, // target y
+        180, // target width
+        24, // target height
+      );
+      this.canvasCtx.restore();
+    } else if (current_distance_ran >= 23990 && current_distance_ran < 27990) {
+      this.canvasCtx.save();
+      this.canvasCtx.drawImage(
+        Runner.imageSprite,
+        1830, // source x
+        132, // source y
+        80, // source width
+        50, // source height
+        412 - 40, // target x
+        0, // target y
+        40, // target width
+        24, // target height
+      );
+      this.canvasCtx.restore();
+    } else if (current_distance_ran >= 27990 && current_distance_ran < 31990) {
+      this.canvasCtx.save();
+      this.canvasCtx.drawImage(
+        Runner.imageSprite,
+        1910, // source x
+        132, // source y
+        106, // source width
+        50, // source height
+        412 - 53, // target x
+        0, // target y
+        53, // target width
+        24, // target height
+      );
+      this.canvasCtx.restore();
+    }
+
     let sourceWidth = DistanceMeter.dimensions.WIDTH;
     let sourceHeight = DistanceMeter.dimensions.HEIGHT;
     let sourceX = DistanceMeter.dimensions.WIDTH * value;
