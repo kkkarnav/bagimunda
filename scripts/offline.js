@@ -827,9 +827,10 @@ Runner.prototype = {
         this.distanceRan += this.currentSpeed * deltaTime / this.msPerFrame;
         current_distance_ran = this.distanceRan;
 
+        audioFiles[0].play();
+
         if (this.distanceRan < 3990) {
           document.body.style.backgroundColor = "maroon";
-          audioFiles[0].play();
         } else if (this.distanceRan >= 3990 && this.distanceRan < 7990) {
           document.body.style.backgroundColor = "midnightblue";
         } else if (this.distanceRan >= 7990 && this.distanceRan < 11990) {
@@ -857,12 +858,15 @@ Runner.prototype = {
           this.currentSpeed += this.config.ACCELERATION;
         }
       } else if (this.distanceRan >= 31990) {
+        audioFiles[0].pause();
         this.gameEnded();
       } else {
+        audioFiles[0].pause();
         this.gameOver();
       }
 
       if (this.distanceRan >= 33000) {
+        audioFiles[0].pause();
         this.gameEnded();
       }
 
