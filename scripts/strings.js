@@ -12,7 +12,7 @@ var pageData = { "altGameCommonImage1x":
 	"errorCode":"",
 	"fontfamily":"'Segoe UI', Tahoma, sans-serif",
 	"fontsize":"75%",
-	"heading":{"hostName":"dino","msg":"PLAYER NO. 1: Deluxe \n Press space to play"},
+	"heading":{"hostName":"Bagi","msg":"PLAYER NO. 1: Deluxe \n Press space to play"},
 	"iconClass":"icon-offline",
 	"language":"en",
 	"textdirection":"ltr",
