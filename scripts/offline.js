@@ -834,7 +834,7 @@ Runner.prototype = {
         } else if (this.distanceRan >= 3990 && this.distanceRan < 7990) {
           document.body.style.backgroundColor = "midnightblue";
         } else if (this.distanceRan >= 7990 && this.distanceRan < 11990) {
-          document.body.style.backgroundColor = "purple";
+          document.body.style.backgroundColor = "mediumorchid";
         } else if (this.distanceRan >= 11990 && this.distanceRan < 15990) {
           document.body.style.backgroundColor = "goldenrod";
         } else if (this.distanceRan >= 15990 && this.distanceRan < 19990) {
@@ -842,7 +842,7 @@ Runner.prototype = {
         } else if (this.distanceRan >= 19990 && this.distanceRan < 23990) {
           document.body.style.backgroundColor = "midnightblue";
         } else if (this.distanceRan >= 23990 && this.distanceRan < 27990) {
-          document.body.style.backgroundColor = "purple";
+          document.body.style.backgroundColor = "mediumorchid";
         } else if (this.distanceRan >= 27990 && this.distanceRan < 31990) {
           document.body.style.backgroundColor = "goldenrod";
         } else if (this.distanceRan >= 31990) {
@@ -2237,7 +2237,7 @@ GameEndedPanel.dimensions = {
 TEXT_X: 0,
 TEXT_Y: 13,
 TEXT_WIDTH: 160,
-TEXT_HEIGHT: 24,
+TEXT_HEIGHT: 12,
 RESTART_WIDTH: 36,
 RESTART_HEIGHT: 32,
 };
