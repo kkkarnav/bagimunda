@@ -78,6 +78,7 @@ function Runner(outerContainerId, opt_config) {
   this.tRex = null;
 
   this.distanceMeter = null;
+  this.songName = null;
   this.distanceRan = 0;
 
   this.highestScore = window.localStorage.getItem("chrome-dino");
@@ -534,6 +535,8 @@ Runner.prototype = {
     // Distance meter
     this.distanceMeter = new DistanceMeter(this.canvas,
           this.spriteDef.TEXT_SPRITE, this.dimensions.WIDTH);
+    
+    this.songName = new SongName(this.canvas, this.spriteDef.TOUCHDOWN_TEXT, this.dimensions.WIDTH);
 
     // Draw t-rex
     this.tRex = new Trex(this.canvas, this.spriteDef.TREX);
@@ -825,38 +828,29 @@ Runner.prototype = {
         current_distance_ran = this.distanceRan;
 
         if (this.distanceRan < 3990) {
-          document.body.style.backgroundColor = "darkred";
+          document.body.style.backgroundColor = "maroon";
           audioFiles[0].play();
         } else if (this.distanceRan >= 3990 && this.distanceRan < 7990) {
-          document.body.style.backgroundColor = "purple";
-          fadeOutAndSwitch(audioFiles[0], audioFiles[1]);
+          document.body.style.backgroundColor = "midnightblue";
         } else if (this.distanceRan >= 7990 && this.distanceRan < 11990) {
-          document.body.style.backgroundColor = "darkgreen";
-          fadeOutAndSwitch(audioFiles[1], audioFiles[2]);
+          document.body.style.backgroundColor = "purple";
         } else if (this.distanceRan >= 11990 && this.distanceRan < 15990) {
-          document.body.style.backgroundColor = "darkblue";
-          fadeOutAndSwitch(audioFiles[2], audioFiles[3]);
+          document.body.style.backgroundColor = "goldenrod";
         } else if (this.distanceRan >= 15990 && this.distanceRan < 19990) {
-          document.body.style.backgroundColor = "pink";
-          fadeOutAndSwitch(audioFiles[3], audioFiles[4]);
+          document.body.style.backgroundColor = "darkred";
         } else if (this.distanceRan >= 19990 && this.distanceRan < 23990) {
-          document.body.style.backgroundColor = "mediumorchid";
-          fadeOutAndSwitch(audioFiles[4], audioFiles[5]);
+          document.body.style.backgroundColor = "midnightblue";
         } else if (this.distanceRan >= 23990 && this.distanceRan < 27990) {
-          document.body.style.backgroundColor = "orange";
-          fadeOutAndSwitch(audioFiles[5], audioFiles[6]);
+          document.body.style.backgroundColor = "purple";
         } else if (this.distanceRan >= 27990 && this.distanceRan < 31990) {
-          document.body.style.backgroundColor = "pink";
-          fadeOutAndSwitch(audioFiles[6], audioFiles[7]);
+          document.body.style.backgroundColor = "goldenrod";
         } else if (this.distanceRan >= 31990) {
-          document.body.style.backgroundColor = "red";
-          fadeOutAndSwitch(audioFiles[7], audioFiles[0]);
+          document.body.style.backgroundColor = "darkred";
         } else {
-          document.body.style.backgroundColor = "palegreen";
-          for (audio of audioFiles) {
-            audio.pause();
-            audio.currentTime = 0;
-          }
+          document.body.style.backgroundColor = "midnightblue";
+          audioFiles[0].pause();
+          audioFiles[0].currentTime = 0;
+          audioFiles[0].play();
         }
 
         if (this.currentSpeed < this.config.MAX_SPEED) {
@@ -1518,10 +1512,9 @@ Runner.prototype = {
       this.generatedSoundFx.background();
       this.containerEl.setAttribute('title', getA11yString(A11Y_STRINGS.jump));
       announcePhrase(getA11yString(A11Y_STRINGS.started));
-      for (audio of audioFiles) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
+      audioFiles[0].pause();
+      audioFiles[0].currentTime = 0;
+      audioFiles[0].play();
     }
   },
 
@@ -1915,6 +1908,8 @@ function getTimeStamp() {
 function GameOverPanel(
     canvas, textImgPos, restartImgPos, dimensions, opt_altGameEndImgPos,
     opt_altGameActive) {
+  
+  audioFiles[0].pause();
   this.canvas = canvas;
   this.canvasCtx =
       /** @type {CanvasRenderingContext2D} */ (canvas.getContext('2d'));
@@ -3724,6 +3719,71 @@ DistanceMeter.prototype = {
     this.achievement = false;
   },
 };
+
+//******************************************************************************
+
+/**
+ * Handles displaying the song name.
+ * @param {!HTMLCanvasElement} canvas
+ * @param {Object} spritePos Image position in sprite.
+ * @param {number} canvasWidth
+ * @constructor
+ */
+function SongName(canvas, spritePos, canvasWidth) {
+  this.canvas = canvas;
+  this.canvasCtx =
+      /** @type {CanvasRenderingContext2D} */ (canvas.getContext('2d'));
+  this.image = Runner.imageSprite;
+  this.spritePos = spritePos;
+  this.x = 0;
+  this.y = 20;
+
+  this.currentDistance = 0;
+  this.maxScore = 0;
+  this.highScore = '0';
+  this.container = null;
+
+  this.digits = [];
+  this.achievement = false;
+  this.defaultString = '';
+  this.flashTimer = 0;
+  this.flashIterations = 0;
+  this.invertTrigger = false;
+  this.flashingRafId = null;
+  this.highScoreBounds = {};
+  this.highScoreFlashing = false;
+
+  this.config = SongName.config;
+  this.maxScoreUnits = this.config.MAX_DISTANCE_UNITS;
+  this.canvasWidth = canvasWidth;
+}
+
+
+/**
+ * @enum {number}
+ */
+SongName.dimensions = {
+  WIDTH: 40,
+  HEIGHT: 13,
+  DEST_WIDTH: 22,
+};
+
+/**
+ * song name config.
+ * @enum {number}
+ */
+SongName.config = {
+  // Number of characters.
+  MAX_DISTANCE_UNITS: 30,
+
+  // Used for conversion from pixel distance to a scaled unit.
+  COEFFICIENT: 0.025,
+
+  // Padding around the high score hit area.
+  HIGH_SCORE_HIT_AREA_PADDING: 4,
+};
+
+// Copilot: please complete the SongName object to ensure that the passed sprite is constantly present in the top left corner of the canvas
 
 
 //******************************************************************************
