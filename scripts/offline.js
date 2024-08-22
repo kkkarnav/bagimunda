@@ -857,7 +857,7 @@ Runner.prototype = {
         if (this.currentSpeed < this.config.MAX_SPEED) {
           this.currentSpeed += this.config.ACCELERATION;
         }
-      } else if (this.distanceRan >= 31990) {
+      } else if (this.distanceRan >= 5000) {
         audioFiles[0].pause();
         this.gameEnded();
       } else {
@@ -865,7 +865,7 @@ Runner.prototype = {
         this.gameOver();
       }
 
-      if (this.distanceRan >= 33000) {
+      if (this.distanceRan >= 5000) {
         audioFiles[0].pause();
         this.gameEnded();
       }
@@ -2237,7 +2237,7 @@ GameEndedPanel.dimensions = {
 TEXT_X: 0,
 TEXT_Y: 13,
 TEXT_WIDTH: 160,
-TEXT_HEIGHT: 12,
+TEXT_HEIGHT: 24,
 RESTART_WIDTH: 36,
 RESTART_HEIGHT: 32,
 };
@@ -4581,7 +4581,7 @@ Horizon.prototype = {
 
     // Check for multiples of the same type of obstacle.
     // Also check obstacle is available at current speed.
-    if (current_distance_ran >= 33000) {
+    if (current_distance_ran >= 5000) {
       console.log("8 levels completed, game ended.")
     } else if (currentSpeed < obstacleType.minSpeed) {
       this.addNewObstacle(currentSpeed);
