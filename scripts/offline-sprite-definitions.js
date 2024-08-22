@@ -70,7 +70,7 @@ Runner.spriteDefinitionByType = {
       COLLECTABLE: {x: 4, y: 4},
       ALT_GAME_END: {x: 242, y: 4},
       TOUCHDOWN_TEXT: {x: 580, y: 126},
-      GAME_ENDED_TEXT: {x: 2070, y: 114}
+      GAME_ENDED_TEXT: {x: 2060, y: 114}
     },
     MAX_GAP_COEFFICIENT: 1.5,
     MAX_OBSTACLE_LENGTH: 1,

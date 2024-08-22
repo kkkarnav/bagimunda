@@ -865,7 +865,7 @@ Runner.prototype = {
         this.gameOver();
       }
 
-      if (this.distanceRan >= 33000) {
+      if (this.distanceRan >= 3300) {
         audioFiles[0].pause();
         this.gameEnded();
       }
@@ -2236,8 +2236,8 @@ msPerFrame: GameEndedPanel.RESTART_ANIM_DURATION / 8,
 GameEndedPanel.dimensions = {
 TEXT_X: 0,
 TEXT_Y: 13,
-TEXT_WIDTH: 144,
-TEXT_HEIGHT: 20,
+TEXT_WIDTH: 160,
+TEXT_HEIGHT: 24,
 RESTART_WIDTH: 36,
 RESTART_HEIGHT: 32,
 };
