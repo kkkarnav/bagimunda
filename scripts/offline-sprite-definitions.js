@@ -78,7 +78,7 @@ Runner.spriteDefinitionByType = {
     BOTTOM_PAD: 10,
     TREX: {
       WAITING_1: {x: 44, w: 44, h: 47, xOffset: 0},
-      WAITING_2: {x: 88, w: 44, h: 47, xOffset: 0},
+      WAITING_2: {x: 44, w: 44, h: 47, xOffset: 0},
       RUNNING_1: {x: 132, w: 44, h: 47, xOffset: 0},
       RUNNING_2: {x: 176, w: 44, h: 47, xOffset: 0},
       JUMPING: {x: 0, w: 44, h: 47, xOffset: 0},
