@@ -1353,7 +1353,7 @@ Runner.prototype = {
 
     this.tRex.update(100, Trex.status.CRASHED);
 
-    // Game over panel.
+    // Game ended panel.
     if (!this.gameEndedPanel) {
       const origSpriteDef = IS_HIDPI ?
           Runner.spriteDefinitionByType.original.HDPI :
@@ -1404,6 +1404,13 @@ Runner.prototype = {
     }
     this.showSpeedToggle();
     this.disableSpeedToggle(false);
+
+    let delayer = () => {
+      window.location = "https://www.fivepointfiverecords.com/shop"
+    }
+    setTimeout(() => {
+        delayer();
+    }, 3000);
   },
 
   /**
