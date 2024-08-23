@@ -104,18 +104,6 @@ Runner.spriteDefinitionByType = {
         ]
       },
       {
-        type: 'PAPER',
-        width: 26,
-        height: 50,
-        yPos: 90,
-        multipleSpeed: 7,
-        minGap: 120,
-        minSpeed: 0,
-        collisionBoxes: [
-          new CollisionBox(10, 12, 7, 30)
-        ]
-      },
-      {
         type: 'CAR',
         width: 42,
         height: 36,
@@ -125,6 +113,18 @@ Runner.spriteDefinitionByType = {
         minSpeed: 0,
         collisionBoxes: [
           new CollisionBox(0, 12, 14, 30)
+        ]
+      },
+      {
+        type: 'PAPER',
+        width: 26,
+        height: 50,
+        yPos: 90,
+        multipleSpeed: 7,
+        minGap: 120,
+        minSpeed: 0,
+        collisionBoxes: [
+          new CollisionBox(10, 12, 7, 30)
         ]
       },
       {

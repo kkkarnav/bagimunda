@@ -834,7 +834,7 @@ Runner.prototype = {
         } else if (this.distanceRan >= 3990 && this.distanceRan < 7990) {
           document.body.style.backgroundColor = "midnightblue";
         } else if (this.distanceRan >= 7990 && this.distanceRan < 11990) {
-          document.body.style.backgroundColor = "mediumorchid";
+          document.body.style.backgroundColor = "purple";
         } else if (this.distanceRan >= 11990 && this.distanceRan < 15990) {
           document.body.style.backgroundColor = "goldenrod";
         } else if (this.distanceRan >= 15990 && this.distanceRan < 19990) {
@@ -842,7 +842,7 @@ Runner.prototype = {
         } else if (this.distanceRan >= 19990 && this.distanceRan < 23990) {
           document.body.style.backgroundColor = "midnightblue";
         } else if (this.distanceRan >= 23990 && this.distanceRan < 27990) {
-          document.body.style.backgroundColor = "mediumorchid";
+          document.body.style.backgroundColor = "purple";
         } else if (this.distanceRan >= 27990 && this.distanceRan < 31990) {
           document.body.style.backgroundColor = "goldenrod";
         } else if (this.distanceRan >= 31990) {
@@ -3446,20 +3446,6 @@ DistanceMeter.prototype = {
       this.canvasCtx.save();
       this.canvasCtx.drawImage(
         Runner.imageSprite,
-        1000, // source x
-        132, // source y
-        136, // source width
-        50, // source height
-        412 - 68, // target x
-        0, // target y
-        68, // target width
-        24, // target height
-      );
-      this.canvasCtx.restore();
-    } else if (current_distance_ran >= 7990 && current_distance_ran < 11990) {
-      this.canvasCtx.save();
-      this.canvasCtx.drawImage(
-        Runner.imageSprite,
         1136, // source x
         132, // source y
         156, // source width
@@ -3467,6 +3453,20 @@ DistanceMeter.prototype = {
         412 - 78, // target x
         0, // target y
         78, // target width
+        24, // target height
+      );
+      this.canvasCtx.restore();
+    } else if (current_distance_ran >= 7990 && current_distance_ran < 11990) {
+      this.canvasCtx.save();
+      this.canvasCtx.drawImage(
+        Runner.imageSprite,
+        1000, // source x
+        132, // source y
+        136, // source width
+        50, // source height
+        412 - 68, // target x
+        0, // target y
+        68, // target width
         24, // target height
       );
       this.canvasCtx.restore();
